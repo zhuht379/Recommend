@@ -13,7 +13,7 @@ xq[:,0]+= np.arange(nq)/1000.
 # 2.创建索引index，faiss创建索引对向量预处理，提高查询效率，faiss提供了多种索引的方法，这里选择最简单的暴力检索L2距离的索引：indexFlatL2
 # 创建索引时必须指定向量的维度d，并且大部分索引需要训练的步骤，indexFlat2跳过这一步。
 import  faiss                
-index=faiss.IndexFlat2(d)        #  build the index
+index=faiss.IndexFlatL2(d)        #  build the index
 print(index.is_trained)
 
 # 3. 当索引创建好并训练(如果需要)之后，就可以执行add和search方法了。add方法一般添加训练时的样本，search就是寻找相似向量
